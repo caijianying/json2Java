@@ -18,9 +18,7 @@ public class Json2JavaUseLombokAction extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent event) {
         Editor editor = event.getData(CommonDataKeys.EDITOR);
         String text = editor.getSelectionModel().getSelectedText();
-        System.out.println("actionPerformed>>>:" + text);
         text = StringEscapeUtils.unescapeJava(text);
-        System.out.println("actionPerformed>>>:" + text);
         Json2Java.INSTANCE.useLombok(true).writeBean(text, "RootBean", "Json2Java", event.getProject().getBasePath());
     }
 }

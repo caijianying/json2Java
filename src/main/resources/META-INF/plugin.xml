@@ -14,12 +14,23 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
 
+    <change-notes><![CDATA[
+        <h3>20230312</h3>
+        <ul>
+            <li>Add the action menu entry and right-click the jsonToJava menu.（增加action菜单入口，右键 jsonToJava菜单）</li>
+            <li>Camelcase name conversion is supported.（支持驼峰命名转换）</li>
+            <li>supports native getters, setters, and lombok syntax. (支持原生getter、setter方法和lombok语法)</li>
+        </ul>
+        ]]>
+    </change-notes>
+
+
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <group icon="./json.svg" text="json2Java" popup="true">
+        <group icon="json.svg" text="Json2Java" popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <action id="json2JavaAction" class="com.tool.action.Json2JavaAction" text="Json2Java"
                     description="parse json to java"/>

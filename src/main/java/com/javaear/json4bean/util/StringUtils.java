@@ -1,7 +1,7 @@
 package com.javaear.json4bean.util;
 
 /**
- * @author aooer
+ * @author caijy
  */
 public abstract class StringUtils {
 
