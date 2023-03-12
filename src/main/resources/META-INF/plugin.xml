@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>com.xiaobaicai.tools.JsonTools</id>
+    <name>Json2Java</name>
+    <vendor url="https://blog.caijy.top/" email="XiaoBaiCai5811@163.com"/>
+    <vendor>小白菜</vendor>
+
+    <description><![CDATA[
+        This is a lightweight plug-in that converts json data into java files, supports native getters, setters, and lombok syntax
+        <br/>
+        ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <group icon="./json.svg" text="json2Java" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action id="json2JavaAction" class="com.tool.action.Json2JavaAction" text="Json2Java"
+                    description="parse json to java"/>
+            <action id="Json2JavaUseLombok" class="com.tool.action.Json2JavaUseLombokAction" text="Json2JavaUseLombok"
+                    description="parse json to java use lombok"/>
+        </group>
+    </actions>
+
+    <!--    <projectListeners>-->
+    <!--        <listener class="com.tool.listener.ProjectInitListener"-->
+    <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+    <!--    </projectListeners>-->
+</idea-plugin>

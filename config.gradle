@@ -1,0 +1,13 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
+def getCurrentVersion() {
+    DateFormat df = new SimpleDateFormat("yyyyMMdd")
+    return df.format(Calendar.getInstance(Locale.CHINA).getTime())
+}
+
+ext {
+    plugin = [
+            version: getCurrentVersion()
+    ]
+}
