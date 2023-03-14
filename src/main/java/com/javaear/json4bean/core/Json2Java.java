@@ -55,8 +55,10 @@ public class Json2Java {
         }
     }
 
-    private static void render(String jsonStr, String className, String packageName, String destDir) throws IOException {
-        String classBody = JsonSerializer.serialize(new JsonObject(jsonStr).getJsonObj(), className, StringUtils.PREFIX_SPACE, INSTANCE.useLombok());
+    private static void render(String jsonStr, String className, String packageName, String destDir)
+        throws IOException {
+        String classBody = JsonSerializer.serialize(new JsonObject(jsonStr).getJsonObj(), className,
+            StringUtils.PREFIX_SPACE, INSTANCE.useLombok());
         if (StringUtils.isCreateMultiBean) {
             for (Map<String, String> multiBean : ArrayUtils.multiBeans) {
                 renderBody(multiBean.get("classBody"), multiBean.get("className"), packageName, destDir);
@@ -66,17 +68,24 @@ public class Json2Java {
         }
     }
 
-    private static void renderBody(String classBody, String className, String packageName, String destDir) throws IOException {
-        final String javaBeanContent = StringUtils.LINE + (StringUtils.isEmpty(MapUtils.CODE_TEMPLATE_MAP.get("class")) ? "" : StringUtils.LINE) + MapUtils.CODE_TEMPLATE_MAP.get("class") +
-                classBody;
-        String copyright = MapUtils.CODE_TEMPLATE_MAP.get("copyright") + (StringUtils.isEmpty(MapUtils.CODE_TEMPLATE_MAP.get("copyright")) ? "" : StringUtils.LINE);
-        String packageLine = (StringUtils.isEmpty(packageName) ? "" : "package " + packageName + ";" + StringUtils.LINE + StringUtils.LINE);
-        String importLines = javaBeanContent.contains("private List<") ? "import java.util.List;" + StringUtils.LINE : "";
-        importLines += INSTANCE.useLombok ? "import lombok.Setter;" + StringUtils.LINE + "import lombok.Getter;" + StringUtils.LINE : "";
-
+    private static void renderBody(String classBody, String className, String packageName, String destDir)
+        throws IOException {
+        final String javaBeanContent = StringUtils.LINE + (StringUtils.isEmpty(MapUtils.CODE_TEMPLATE_MAP.get("class"))
+            ? "" : StringUtils.LINE) + MapUtils.CODE_TEMPLATE_MAP.get("class") +
+            classBody;
+        String copyright = MapUtils.CODE_TEMPLATE_MAP.get("copyright") + (StringUtils.isEmpty(
+            MapUtils.CODE_TEMPLATE_MAP.get("copyright")) ? "" : StringUtils.LINE);
+        String packageLine = (StringUtils.isEmpty(packageName) ? ""
+            : "package " + packageName + ";" + StringUtils.LINE + StringUtils.LINE);
+        String importLines = javaBeanContent.contains("private List<") ? "import java.util.List;" + StringUtils.LINE
+            : "";
+        importLines += INSTANCE.useLombok ? "import lombok.Setter;" + StringUtils.LINE + "import lombok.Getter;"
+            + StringUtils.LINE : "";
+        importLines += "import com.alibaba.fastjson.annotation.JSONField;";
         String filePath = destDir + File.separatorChar + className + ".java";
-        IOUtils.write(new StringBuilder().append(copyright).append(packageLine).append(importLines).append(javaBeanContent).toString().trim(),
-                filePath);
+        IOUtils.write(new StringBuilder().append(copyright).append(packageLine).append(importLines).append(
+            javaBeanContent).toString().trim(),
+            filePath);
         try {
             infoOpenFile("java文件已生成！", filePath);
         } catch (Throwable ex) {
