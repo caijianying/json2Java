@@ -7,6 +7,9 @@
     <description><![CDATA[
         This is a lightweight plug-in that converts json data into java files, supports native getters, setters, and lombok syntax
         <br/>
+        usage here: <br/>
+        1. install plugin named Json2JavaLight  <br/>
+        2. select json then right-click the jsonToJava menu <br/>
         ]]></description>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
