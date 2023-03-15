@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.xiaobaicai.tools.JsonTools</id>
+    <id>com.xiaobaicai.Json2Java</id>
     <name>Json2JavaLight</name>
     <vendor url="https://blog.caijy.top/" email="XiaoBaiCai5811@163.com"/>
     <vendor>小白菜</vendor>
@@ -15,7 +15,6 @@
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.intellij.java</depends>
 
     <change-notes><![CDATA[
         <h3>20230312</h3>
@@ -41,9 +40,4 @@
                     description="parse json to java use lombok"/>
         </group>
     </actions>
-
-    <!--    <projectListeners>-->
-    <!--        <listener class="com.tool.listener.ProjectInitListener"-->
-    <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
-    <!--    </projectListeners>-->
 </idea-plugin>
