@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.xiaobaicai.Json2Java</id>
+    <id>com.xiaobaicai.tools.JsonTools</id>
     <name>Json2JavaLight</name>
     <vendor url="https://blog.caijy.top/" email="XiaoBaiCai5811@163.com"/>
     <vendor>小白菜</vendor>
