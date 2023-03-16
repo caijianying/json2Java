@@ -1,6 +1,5 @@
 package com.javaear.json4bean.core;
 
-import com.intellij.ide.lightEdit.LightEditService;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationAction;
 import com.intellij.notification.NotificationType;
