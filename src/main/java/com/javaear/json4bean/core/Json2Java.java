@@ -6,6 +6,8 @@ import com.intellij.notification.NotificationAction;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.javaear.json4bean.exception.Json4BeanIOException;
@@ -100,7 +102,9 @@ public class Json2Java {
             @Override
             public void actionPerformed(@NotNull AnActionEvent e, @NotNull Notification notification) {
                 VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(filePath);
-                LightEditService.getInstance().openFile(virtualFile);
+                OpenFileDescriptor descriptor = new OpenFileDescriptor(e.getProject(), virtualFile);
+                FileEditorManager.getInstance(e.getProject()).openEditor(descriptor,true);
+                //LightEditService.getInstance().openFile(virtualFile);
             }
         });
         Notifications.Bus.notify(notification, null);
