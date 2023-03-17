@@ -23,8 +23,7 @@ public class Json2JavaUseLombokAction extends AnAction {
         Editor editor = event.getData(CommonDataKeys.EDITOR);
         String text = editor.getSelectionModel().getSelectedText();
 
-        boolean isJson = text.startsWith("[") || text.startsWith("{");
-        if (StringUtils.isBlank(text) || !isJson) {
+        if (StringUtils.isBlank(text) || !(text.startsWith("[") || text.startsWith("{"))) {
             Notification notification = new Notification("Print", "提示", "请选择合适的JSON文本！", NotificationType.INFORMATION);
             Notifications.Bus.notify(notification, null);
             return;
