@@ -58,7 +58,8 @@ public class Json2Java {
 
     private static void render(String jsonStr, String className, String packageName, String destDir)
         throws IOException {
-        String classBody = JsonSerializer.serialize(new JsonObject(jsonStr).getJsonObj(), className,
+        String classBody = JsonSerializer.serialize(
+            jsonStr == null ? "" : new JsonObject(jsonStr).getJsonObj(), className,
             StringUtils.PREFIX_SPACE, INSTANCE.useLombok());
         if (StringUtils.isCreateMultiBean) {
             for (Map<String, String> multiBean : ArrayUtils.multiBeans) {
@@ -102,7 +103,7 @@ public class Json2Java {
             public void actionPerformed(@NotNull AnActionEvent e, @NotNull Notification notification) {
                 VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(filePath);
                 OpenFileDescriptor descriptor = new OpenFileDescriptor(e.getProject(), virtualFile);
-                FileEditorManager.getInstance(e.getProject()).openEditor(descriptor,true);
+                FileEditorManager.getInstance(e.getProject()).openEditor(descriptor, true);
                 //LightEditService.getInstance().openFile(virtualFile);
             }
         });

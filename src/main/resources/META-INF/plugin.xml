@@ -17,7 +17,13 @@
     <depends>com.intellij.modules.platform</depends>
 
     <change-notes><![CDATA[
-        <h3>20230312</h3>
+        <h3>20230317</h3>
+        <ul>
+            <li>fix the null value.（null值处理）</li>
+            <li>Add a prompt for unselected text.（添加未选中文本的提示）</li>
+        </ul>
+
+        <h3>20230316</h3>
         <ul>
             <li>Add the action menu entry and right-click the jsonToJava menu.（增加action菜单入口，右键 jsonToJava菜单）</li>
             <li>Camelcase name conversion is supported.（支持驼峰命名转换）</li>
