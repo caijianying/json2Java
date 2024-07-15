@@ -12,7 +12,7 @@
 * 使用FastJson处理Json字段映射
 
 ## 感谢
-[https://github.com/apache/skywalking](https://gitee.com/angryid)
+[[https://github.com/apache/skywalking](https://gitee.com/angryid)](https://gitee.com/angryid/json4bean)
 
 ## 最后
 若觉得有方便到您，欢迎Star哦.若有建议，请提Issue.大家共同进步。
